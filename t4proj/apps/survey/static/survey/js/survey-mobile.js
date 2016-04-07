@@ -2,6 +2,7 @@ phonon.options({
     navigator: {
         defaultPage: 'survey',
         enableBrowserBackButton: false,
+        useHash: false,
     },
     i18n: null
 });
