@@ -1,0 +1,34 @@
+@import url("survey.css");
+
+.survey-submit-btn-container {
+    display:flex;
+    height:100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.survey-submit-btn {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    font-size: 45px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.list label {
+    padding-left: 12px;
+}
+.checkbox span, .radio span {
+    right: 12px;
+}
+
+.list .list-header {
+  height: auto;
+  line-height: 24px;
+  font-size: 16px;
+  background-color: #f5f5f5;
+}
+.list .list-header {
+  padding: 12px 16px;
+}

@@ -1,0 +1,55 @@
+                        <div class="x_panel tile fixed_height_320 overflow_hidden">
+                            <div class="x_title">
+                                <h2>{{question.text}}</h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <table class="" style="width:100%">
+                                    <tr>
+                                        <th style="width:66%;">
+                                            <p>Results</p>
+                                        </th>
+                                        <th>
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                <p class="">Legend</p>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <canvas id="question_{{question.id}}_canvas" height="150" width="280" style="margin: 15px 10px 10px 0"></canvas>
+                                        </td>
+                                        <td>
+                                            <table class="tile_info">
+                                            {% for k, v in  data.results.items %}
+                                                <tr>
+                                                    <td>
+                                                        <p><i class="fa fa-square" style="color: {% cycle '#1f77b4' '#ff7f0e' '#2ca02c' '#d62728' '#9467bd' '#8c564b' '#e377c2' '#7f7f7f' '#bcbd22' '#17becf' %}"></i>{{k}} </p>
+                                                    </td>
+                                                    <td>{% widthratio v data.total_votes 100 %}%</td>
+                                                </tr>
+                                            {% endfor %}
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+<script>
+$(document).ready(function() {
+    var doughnutData = [
+        {% for k, v in data.results.items %}
+        {
+            value: {{v}},
+            color: "{% cycle '#1f77b4' '#ff7f0e' '#2ca02c' '#d62728' '#9467bd' '#8c564b' '#e377c2' '#7f7f7f' '#bcbd22' '#17becf' %}",
+            label: "{{ k | escapejs}}"
+        },
+        {% endfor %}
+    ];
+    var ctx = document.getElementById("question_{{question.id}}_canvas").getContext("2d");
+    var doughnut = new Chart(ctx).Doughnut(doughnutData, {
+        animationEasing : "easeInOutQuart",
+    });
+});
+</script>

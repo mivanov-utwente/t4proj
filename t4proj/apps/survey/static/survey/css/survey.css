@@ -1,0 +1,19 @@
+.header-bar {
+    background-color: #000;
+    background-image: url(../../images/headerbg.png);
+}
+.header-bar-logobg {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    height: 52px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 50%;
+}
+
+.list label:hover, .list a:hover {
+    background-color: rgba(0, 132, 231, 0.5);
+}

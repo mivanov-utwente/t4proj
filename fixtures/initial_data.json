@@ -1,0 +1,236 @@
+[
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 1,
+    "name": "Can add log entry",
+    "codename": "add_logentry"
+  },
+  "pk": 1
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 1,
+    "name": "Can change log entry",
+    "codename": "change_logentry"
+  },
+  "pk": 2
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 1,
+    "name": "Can delete log entry",
+    "codename": "delete_logentry"
+  },
+  "pk": 3
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 2,
+    "name": "Can add permission",
+    "codename": "add_permission"
+  },
+  "pk": 4
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 2,
+    "name": "Can change permission",
+    "codename": "change_permission"
+  },
+  "pk": 5
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 2,
+    "name": "Can delete permission",
+    "codename": "delete_permission"
+  },
+  "pk": 6
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 3,
+    "name": "Can add group",
+    "codename": "add_group"
+  },
+  "pk": 7
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 3,
+    "name": "Can change group",
+    "codename": "change_group"
+  },
+  "pk": 8
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 3,
+    "name": "Can delete group",
+    "codename": "delete_group"
+  },
+  "pk": 9
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 4,
+    "name": "Can add user",
+    "codename": "add_user"
+  },
+  "pk": 10
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 4,
+    "name": "Can change user",
+    "codename": "change_user"
+  },
+  "pk": 11
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 4,
+    "name": "Can delete user",
+    "codename": "delete_user"
+  },
+  "pk": 12
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 5,
+    "name": "Can add content type",
+    "codename": "add_contenttype"
+  },
+  "pk": 13
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 5,
+    "name": "Can change content type",
+    "codename": "change_contenttype"
+  },
+  "pk": 14
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 5,
+    "name": "Can delete content type",
+    "codename": "delete_contenttype"
+  },
+  "pk": 15
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 6,
+    "name": "Can add session",
+    "codename": "add_session"
+  },
+  "pk": 16
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 6,
+    "name": "Can change session",
+    "codename": "change_session"
+  },
+  "pk": 17
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 6,
+    "name": "Can delete session",
+    "codename": "delete_session"
+  },
+  "pk": 18
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 7,
+    "name": "Can add questionnaire",
+    "codename": "add_questionnaire"
+  },
+  "pk": 19
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 7,
+    "name": "Can change questionnaire",
+    "codename": "change_questionnaire"
+  },
+  "pk": 20
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 7,
+    "name": "Can delete questionnaire",
+    "codename": "delete_questionnaire"
+  },
+  "pk": 21
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 8,
+    "name": "Can add question",
+    "codename": "add_question"
+  },
+  "pk": 22
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 8,
+    "name": "Can change question",
+    "codename": "change_question"
+  },
+  "pk": 23
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "content_type": 8,
+    "name": "Can delete question",
+    "codename": "delete_question"
+  },
+  "pk": 24
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "user_permissions": [],
+    "last_name": "",
+    "is_active": true,
+    "last_login": "2016-03-20T04:33:36.877Z",
+    "is_staff": true,
+    "email": "",
+    "is_superuser": true,
+    "date_joined": "2016-03-20T04:33:07.291Z",
+    "groups": [],
+    "username": "admin",
+    "first_name": "",
+    "password": "pbkdf2_sha256$20000$qsgCRdgAIBBO$VnEDgc1z9CcZWeMKrbTw3qvhR2QVfYWPblZomik3T9E="
+  },
+  "pk": 1
+}
+]

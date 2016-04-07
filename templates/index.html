@@ -1,0 +1,26 @@
+{% extends 'base-phonon.html' %}
+{% load staticfiles %}
+
+{%block 'title' %}Room - {{ room.name }}{% endblock %}
+
+{%block 'additional_stylesheets' %}
+<link rel="stylesheet" href="{% static 'survey/css/survey.css' %}">
+{% endblock %}
+
+
+{% block 'content' %}
+<header class="header-bar">
+    <div class="header-bar-logobg" style="background-image: url({% static 'images/header.png' %})">
+        <div class="center"><h1 class="title">RoomSurvey.me</h1></div>
+    </div>
+</header>
+<div class="content">
+    <div class="padded-full">
+        <ul class="list">
+            <li class="list-header"><strong>Modules</strong></li>
+            <li><a href="{% url 'survey:index'%}" class="padded-list">Survey</a></li>
+            <li><a href="{% url 'stats:dashboard'%}" class="padded-list">Statistics</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

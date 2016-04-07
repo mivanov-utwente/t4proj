@@ -1,0 +1,129 @@
+{% extends 'base-phonon.html' %}
+{% load staticfiles %}
+{% load times from survey_extra %}
+
+{%block 'title' %}Room - {{ room.name }}{% endblock %}
+
+{%block 'additional_stylesheets' %}
+<link rel="stylesheet" href="{% static 'survey/css/survey-mobile.css' %}">
+{% endblock %}
+
+{% block 'content' %}
+<form action="{{ request.path }}" method="post">
+<survey data-page="true">
+    <header class="header-bar">
+        <div class="header-bar-logobg" style="background-image: url({% static 'images/header.png' %})">
+            <div class="center"><h1 class="title" id="survey-page-title" data-room-name="{{ room.name }}">{{ room.name }}</h1></div>
+        </div>
+    </header>
+    <nav class="tabs header-tabs">
+        <div class="tab-items">
+            <a class="tab-item" ><i class="icon icon-info-outline"></i></a>
+            {% for q in survey.questions.all %}
+            <a class="tab-item" >
+            <i class="icon {% if q.question_type == q.TEXT %}icon-edit{% elif q.question_type == q.CHOICE %}icon-menu{% elif q.question_type == q.RATING %}icon-star{% else %}icon-more-horiz{% endif %}"></i>
+            </a>
+            {% endfor %}
+            <a class="tab-item" ><i class="icon icon-arrow-forward"></i></a>
+        </div>
+        <div class="tab-indicator"></div>
+    </nav>
+    <div class="content" data-tab-contents="true" data-disable-swipe="false" data-tab-default="1" >
+        <div class="tab-content">
+            <div class="padded-full">
+                {% if form.errors %}
+                    <p class="padded-top">
+                        <h4>There are some errors in your feedback.</h4>
+                        <button type="button" class="btn primary on-tap-next-tab">Start Survey Again</button>
+                    </p>
+                    <ul class="list">
+                    <li class="divider">Errors in following questions:</li>
+                    {% for field in form %}
+                        {% if field.errors %}
+                        <li>
+                            <i class="pull-right icon icon-expand-more"></i>
+                            <a href="#" class="padded-list">{{ field.label }}</a>
+                            <div class="accordion-content">
+                              {{ field.errors }}
+                            </div>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="padded-top">
+                        <h4>You are filling in a survey for room "{{ room.name }}".</h3>
+                        <button type="button" class="btn primary padded-top on-tap-next-tab">Start Survey</button>
+                    </p>
+                    <p class="padded-top">
+                        <ul class="list">
+                        <li class="divider">We will ask you the following questions:</li>
+                        {% for field in form %}
+                        <li class="padded-list">{{ field.label }}</li>
+                        {% endfor %}
+                        </ul>
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+        {% for q in survey.questions.all %}
+        <div class="tab-content">
+            <div class="padded-full">
+                {% if q.question_type == q.CHOICE %}
+                <ul class="list">
+                    <li class="list-header"><strong>{{ q.text }}</strong></li>
+                    {% for choice in q.get_choices %}
+                    <li class="padded-for-list">
+                        <label class="radio on-tap-next-tab">
+                            <input type="radio" name="question-{{q.id}}" value="{{choice.0}}" {% for field in form %}{% if field.label == q.text and field.value == choice.0 %}checked="checked"{% endif %}{% endfor %} />
+                            {{choice.1}}
+                            <span></span>
+                        </label>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% elif q.question_type == q.RATING %}
+                <ul class="list">
+                    <li class="list-header"><strong>{{ q.text }}</strong></li>
+                    {% for stars in "12345" %}
+                    <li class="padded-for-list">
+                        <label class="radio on-tap-next-tab">
+                            {% for s in "*"|times:stars %}<i class="icon icon-star"></i>{% endfor %}
+                            <input type="radio" name="question-{{q.id}}" value="{{ stars }}" {% for field in form %}{% if field.label == q.text and field.value == stars %}checked="checked"{% endif %}{% endfor %} />
+
+                            <span></span>
+                        </label>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% elif q.question_type == q.TEXT %}
+                <ul class="list">
+                    <li class="list-header"><strong>{{ q.text }}</strong></li>
+                    <li>
+                        <textarea name="question-{{q.id}}"></textarea>
+
+                        <p class="padded-top">
+                            <button type="button" class="btn primary on-tap-next-tab">Continue</button>
+                        </p>
+                    </li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        <div class="tab-content">
+            <div class="padded-full">
+                    {% csrf_token %}
+                    <div class="survey-submit-btn-container">
+                        <button class="btn padded-full active primary survey-submit-btn">Send feedback</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</survey>
+</form>
+{% endblock%}
+
+{% block 'additional_javascripts' %}
+<script src="{% static 'survey/js/survey-mobile.js' %}"></script>
+{% endblock %}
