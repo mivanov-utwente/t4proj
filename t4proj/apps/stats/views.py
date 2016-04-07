@@ -19,7 +19,7 @@ def dashboard(request, room=None):
 
 
 def _build_explore_data_from_filter(filter_data):
-    answers = quieries.answers_filtered_by_survey_rooms_daterange_timerange(
+    answers = queries.answers_filtered_by_survey_rooms_daterange_timerange(
         filter_data['survey_id'], filter_data['room_ids'],
         filter_data['daterange'], filter_data['timerange'])
 
