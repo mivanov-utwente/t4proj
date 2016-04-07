@@ -63,7 +63,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for answer in r.answers_all %}
+                                    {% for answer in r.answers.all %}
                                     <tr>
                                         <td>{{ answer.question }}</td>
                                         <td>{{ answer.body }}</td>
